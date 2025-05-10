@@ -1,35 +1,33 @@
+import React, { useEffect, useRef } from 'react';
 
-import { useRef, useEffect } from 'react';
+export const MusicPlayer: React.FC = () => {
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
-const MusicPlayer = () => {
-  const audioRef = useRef<HTMLIFrameElement>(null);
-
-  // Auto-play when component mounts
   useEffect(() => {
-    const timer = setTimeout(() => {
-      // Send message to the iframe to play
-      if (audioRef.current) {
+    // Function to send play command to the iframe
+    const playMusic = () => {
+      if (iframeRef.current) {
         const message = { method: 'play' };
-        audioRef.current.contentWindow?.postMessage(JSON.stringify(message), '*');
+        iframeRef.current.contentWindow?.postMessage(JSON.stringify(message), '*');
       }
-    }, 2000); // Slight delay to ensure the iframe is loaded
-    
+    };
+
+    // Try to play after a short delay to ensure iframe is loaded
+    const timer = setTimeout(playMusic, 1000);
+
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div className="hidden">
-      <iframe
-        ref={audioRef}
-        width="100%"
-        height="166"
-        scrolling="no"
-        frameBorder="no"
-        allow="autoplay"
-        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1564047265&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"
-      ></iframe>
-    </div>
+    <iframe
+      ref={iframeRef}
+      width="0"
+      height="0"
+      scrolling="no"
+      frameBorder="no"
+      allow="autoplay"
+      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1564047265&color=%23ff5500&auto_play=true&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"
+      style={{ display: 'none' }}
+    />
   );
 };
-
-export default MusicPlayer;

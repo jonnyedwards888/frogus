@@ -82,13 +82,13 @@ const Index = () => {
       <div className="bg-shimmer" />
       <MatrixRain />
       <header className="z-10 mt-10 mb-4 text-center">
-        <h1 className="holo-text font-extrabold text-5xl md:text-7xl tracking-widest mb-2" style={{letterSpacing:'0.1em'}}>$FROGUS</h1>
-        <p className="font-bold text-2xl md:text-3xl text-white/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)] mb-4">Leap Into Wizardry</p>
+        <h1 className="frogus-title tracking-widest mb-2" style={{letterSpacing:'0.1em'}}>$frogus</h1>
+        <p className="font-bold text-2xl md:text-3xl text-white/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)] mb-4">wizard typeshit</p>
       </header>
       <main className="z-10 flex flex-col items-center">
         {/* Centered Card Image */}
-        <div className="holo-card frogus-card bg-gradient-to-br from-yellow-100 via-pink-100 to-green-100 border-4 border-fuchsia-500 rounded-2xl shadow-2xl p-4 mb-8 max-w-xs w-full relative flex flex-col items-center">
-          <img src={frogusCardImg} alt="Frogus Card" className="rounded-xl border-4 border-emerald-400 shadow-lg w-full h-auto bg-white" />
+        <div className="mb-8 max-w-xs w-full relative flex flex-col items-center">
+          <img src={frogusCardImg} alt="Frogus Card" className="w-full h-auto" />
         </div>
         {/* Terminal/List */}
         <div className="bg-black/80 border-2 border-emerald-400 rounded-lg shadow-lg p-4 max-w-md w-full mb-8 flex flex-col items-center">

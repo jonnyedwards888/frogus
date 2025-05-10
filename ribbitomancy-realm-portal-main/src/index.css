@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Philosopher:ital,wght@0,400;0,700;1,400&display=swap');
 
 @tailwind base;
@@ -232,9 +233,11 @@
 }
 
 .holo-text {
-  color: #fff;
-  text-shadow: 0 0 8px #00ffff;
-  font-weight: bold;
+  color: #FAFAFA;
+  text-shadow: 
+    0 0 5px rgba(255, 255, 255, 0.2),
+    0 0 10px rgba(255, 255, 255, 0.1);
+  animation: softPulse 3s ease-in-out infinite;
 }
 
 .holo-card {
@@ -258,4 +261,35 @@
   opacity: 0.85;
   filter: drop-shadow(0 0 8px #fff);
   animation: float 6s ease-in-out infinite;
+}
+
+@keyframes colorShift {
+  0% {
+    color: #ff0000;
+    text-shadow: 
+      0 0 2px #ff0000,
+      0 0 4px #ff0000,
+      0 0 6px #ff0000;
+  }
+  50% {
+    color: #ffffff;
+    text-shadow: 
+      0 0 2px #ffffff,
+      0 0 4px #ffffff,
+      0 0 6px #ffffff;
+  }
+  100% {
+    color: #ff0000;
+    text-shadow: 
+      0 0 2px #ff0000,
+      0 0 4px #ff0000,
+      0 0 6px #ff0000;
+  }
+}
+
+.frogus-title {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 900;
+  font-size: 4rem;
+  animation: colorShift 6s ease-in-out infinite;
 }
